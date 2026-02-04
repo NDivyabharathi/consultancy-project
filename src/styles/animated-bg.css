@@ -1,0 +1,125 @@
+/* Animated Textile Background */
+.animated-bg-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.textile-pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.3;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Swirling circle animations */
+@keyframes swirl {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes swirl-reverse {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.swirl-circle {
+  transform-origin: 200px 200px;
+  animation: swirl 20s linear infinite;
+}
+
+.swirl-circle-reverse {
+  transform-origin: 200px 200px;
+  animation: swirl-reverse 25s linear infinite;
+}
+
+.swirl-path {
+  animation: swirl 30s linear infinite;
+  transform-origin: 200px 200px;
+}
+
+.textile-weave {
+  animation: swirl-reverse 35s linear infinite;
+  transform-origin: 200px 200px;
+}
+
+.fabric-threads {
+  animation: swirl 40s linear infinite;
+  transform-origin: 200px 200px;
+}
+
+/* Animated background layers */
+.textile-bg-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.layer-1 {
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(100, 100, 100, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(60, 60, 60, 0.1) 0%, transparent 50%);
+  animation: drift 25s ease-in-out infinite;
+}
+
+.layer-2 {
+  background:
+    radial-gradient(circle at 60% 20%, rgba(120, 120, 120, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(80, 80, 80, 0.15) 0%, transparent 50%);
+  animation: drift 35s ease-in-out infinite reverse;
+}
+
+.layer-3 {
+  background:
+    radial-gradient(circle at 30% 30%, rgba(100, 100, 100, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 70% 50%, rgba(90, 90, 90, 0.1) 0%, transparent 50%);
+  animation: drift 45s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(20px, -20px);
+  }
+  50% {
+    transform: translate(0, 20px);
+  }
+  75% {
+    transform: translate(-20px, -10px);
+  }
+}
+
+/* Glow effect for textile elements */
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.textile-pattern circle,
+.textile-pattern path {
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.1));
+}
