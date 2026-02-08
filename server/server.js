@@ -320,6 +320,7 @@ app.get('/api/sales-trends', async (req, res) => {
     trendMap.set(dateLabel, current);
   });
 
+  
   const salesTrends = Array.from(trendMap.values());
   res.json({ salesTrends });
 });
@@ -402,9 +403,9 @@ app.get('/api/waste-analysis', async (req, res) => {
       percentage: Number(percentage.toFixed(2)),
     };
   });
-
   res.json({ wasteData });
 });
+
 
 // Health Check
 app.get('/api/health', async (req, res) => {
